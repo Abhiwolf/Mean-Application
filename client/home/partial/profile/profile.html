@@ -1,0 +1,94 @@
+<div class="col-md-12" ng-controller="ProfileCtrl">
+    <div class="col-sm-8 center-content panel-margin">
+        <div class="panel panel-default" id="profilePanel">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-4 slider-wrapper">
+                        <div class="" ng-switch="userImage">
+                            <div class="" ng-switch-when="true">
+                                <img ng-src="{{myImage}}" class="img-thumbnail img-responsive" alt="my_image" />
+                            </div>
+                            <div class="" ng-switch-when="false">
+                                <img ng-src="/img/profile_user.jpg" class="img-thumbnail img-responsive" alt="my_image_first" />
+                            </div>
+                        </div>
+                        <div class="md-padding dialogdemoBasicUsage" id="popupContainer" ng-cloak="">
+
+                            <div class="dialog-demo-content" layout="row" layout-wrap="" layout-margin="" layout-align="center">
+                                <md-button ng-if="!userImage" class="md-primary md-raised" ng-click="saveContactImg($event)">
+                                    Upload Photo
+                                </md-button>
+                                <md-button ng-if="userImage" class="md-primary md-raised" ng-click="editContactImg($event)">
+                                    Edit Photo
+                                </md-button>
+                            </div>
+                            <script type="text/ng-template" id="dialog1.tmpl.html">
+                                <md-dialog aria-label="Profile">
+                                    <form ng-cloak>
+                                        <md-toolbar>
+                                            <div class="md-toolbar-tools">
+                                                <h2>Edit Photo</h2>
+                                                <span flex></span>
+                                                <md-button class="md-icon-button" ng-click="cancel()">
+                                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                                </md-button>
+                                            </div>
+                                        </md-toolbar>
+
+                                        <md-dialog-content>
+                                            <div class="md-dialog-content">
+                                                <photo-upload data-ng-model="userImage" user-id="{{userId}}" is-edit-profile="{{editPhoto}}"></photo-upload>
+                                            </div>
+                                        </md-dialog-content>
+                                    </form>
+                                </md-dialog>
+                            </script>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="page-header">
+                            <h3><b>{{userInfo.name}}</b></h3>
+                            <h4 class="text-danger">{{userInfo.designation}}</h4>
+                            <button class="btn btn-default">Download Card</button>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 text-muted">
+                                <div>
+                                    <label class="col-xs-4 text-right">Name</label>
+                                    <label class="col-xs-8">{{userInfo.name}}</label>
+                                </div>
+                                <div>
+                                    <label class="col-xs-4 text-right">DOB</label>
+                                    <label class="col-xs-8">{{userInfo.myDate | date}}</label>
+                                </div>
+                                <div>
+                                    <label class="col-xs-4 text-right">Address</label>
+                                    <label class="col-xs-8">{{userInfo.address}}</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 text-muted">
+                                <div>
+                                    <label class="col-xs-4 text-right">Phone</label>
+                                    <label class="col-xs-8">{{userInfo.phoneNumber}}</label>
+                                </div>
+                                <div>
+                                    <label class="col-xs-4 text-right">Email</label>
+                                    <label class="col-xs-8">{{userInfo.email}}</label>
+                                </div>
+                                <div>
+                                    <label class="col-xs-4 text-right">Designation</label>
+                                    <label class="col-xs-8">{{userInfo.designation}}</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4 center-content">
+                                <button class="btn btn-danger btn-sm" ng-click="gotoEditProfile(userInfo)">Edit Information</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

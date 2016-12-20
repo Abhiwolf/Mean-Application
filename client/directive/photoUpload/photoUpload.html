@@ -1,0 +1,20 @@
+<div>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="photoForm">
+                <input id="imageUpload" type="file" class="upload" nv-file-select="" uploader="uploader" />
+            </form>
+        </div>
+        <div uib-alert ng-repeat="alert in uploadFileAlerts" class="alert-warning" close="removeAlert($index)">{{alert.msg}}</div>
+        <div class="col-sm-12 top-gap">
+            <button type="button" class="btn btn-primary btn-xs" ng-click="saveImage()">
+                <i class="fa fa-camera"></i>
+                <span class="hidden-sm hidden-xs paddingLeft5px">Update</span>
+            </button>
+            <button type="button" class="btn btn-warning btn-xs" ng-click="cancelModel()">
+                <i class="fa fa-times-circle"></i>
+                <span class="hidden-xs hidden-sm paddingLeft5px">Clear</span>
+            </button>
+        </div>
+    </div>
+</div>

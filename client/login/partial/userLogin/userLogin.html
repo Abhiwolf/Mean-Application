@@ -1,0 +1,40 @@
+<div class="col-md-12 login-margin-top" ng-controller="UserloginCtrl">
+    <div class="row">
+        <div class="col-sm-4 center-content">
+            <div class="alert alert-danger alert-dismissible alertAnimate" role="alert" ng-if="authData.errorMessage">
+                <i class="fa fa-exclamation-circle"></i> {{authData.errorMessage}}
+                <button type="button" class="close" data-dismiss="alert" ng-click="authData.errorMessage = null"><span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="panel panel-default animated">
+                <div class="panel-heading noBorderRad">
+                    <span class="text-center">Sign In</span>
+                </div>
+                <div class="panel-body">
+                    <form class="form-signin" name="loginForm" ng-submit="loginForm.$valid && dologin(authData)" novalidate>
+                        <div class="form-group" ng-class="{'form-group has-error': loginForm.username.$error.required, 'form-group has-success':!loginForm.username.$error.required}">
+                            <label for="inputEmail" class="sr-only">Email address</label>
+                            <input id="inputEmail" name="username" ng-model="authData.userName" class="form-control" placeholder="Enter User Name" required="" autofocus="" type="text" autocomplete="off" />
+                        </div>
+                        <div ng-class="{'form-group has-error': loginForm.password.$error.required, 'form-group has-success':!loginForm.password.$error.required}">
+                            <input id="inputPassword" name="password" ng-model="authData.password" class="form-control" placeholder="Enter Password" required="" type="password" autocomplete="off" />
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" value="remember-me"> Remember me
+                            </label>
+                        </div>
+                        <button id="sign" class="btn btn-primary btn-block" type="submit">
+                            <i class="fa fa-sign-in"></i>
+                            <span>Login</span>
+                        </button>
+                        <button class="btn btn-success btn-block" ng-click="registration()">
+                            <i class="fa fa-sign-in"></i>
+                            <span>Registration</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

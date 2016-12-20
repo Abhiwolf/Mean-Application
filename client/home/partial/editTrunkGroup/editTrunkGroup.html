@@ -1,0 +1,116 @@
+<div class="col-md-12" ng-controller="DemopageCtrl">
+    <div class="row">
+        <div class="col-sm-12">
+            <h4><b>Edit Group Trunk Group</b>:<span>000795322GRPTRUNK01</span></h4>
+        </div>
+    </div>
+    <form name="editTrunkGroupForm" novalidate>
+        <div class="row clearfix">
+            <div class="col-sm-10">
+                <div class="inner_header">
+                    <h2>Profile</h2>
+                </div>
+            </div>
+            <div class="col-sm-2 margin-top20">
+                <a href="#" class="btn btn-info btn-width">Save</a>
+                <a href='' class="pull-right text-center" ng-click="showDetails = !showDetails">
+                    <i class="fa fa-question-circle big-icon-help" aria-hidden="true"></i>
+                </a>
+            </div>
+            <div class="col-sm-12" ng-show="showDetails">
+                <div class="quick-help">
+                    <span><strong>Quick Help:</strong></span>
+                    <span><br>Edit settings for this group trunk group, and then click <b>Save</b>. You can change these settings: </span>
+                    <ul class="">
+                        <li><b>	Incoming Concurrent Calls</b></li>
+                        <li><b>Outgoing Concurrent Calls</b></li>
+                        <li><b>Unreachable Destination</b></li>
+                        <li><b>Unreachable Destination Timer</b></li>
+                        <li><b>Forward Always Action</b></li>
+                    </ul>
+                    <span><b>Notes:</b><div class="padding-lft20">1. <b>Maximum Concurrent Calls</b> sets the maximum number of active calls that can be handled by this group trunk group.<br>2.<b>Incoming and Outgoing Calls</b> can't exceed the number of <b>Maximum Concurrent Calls</b>.<br>3.   Only admins with appropriate permissions can edit the <b>Unreachable Destination Timer</b> settings.</div></span>
+                </div>
+            </div>
+        </div>
+        <div class="edit-form-layout clearfix">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label>Group Trunk Group Name</label>
+                        <div class="">000795322GRPTRUNK01</div>
+                    </div>
+                    <div class="form-group">
+                        <label>Incoming Concurrent Call</label>
+                        <input type="text" class="form-control" ng-model="groupTrunkGroup.incommingConcurr" id="UnreachableDestination" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label>Bursting Maximum Total Calls</label>
+                        <div>1 <a href="" tooltip-placement="top-left" uib-tooltip="{{burstingMaxTotal}}"><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i></a></div>
+                    </div>
+                    <div class="form-group">
+                        <label>Unreachable Destination</label>
+                        <div class="row">
+                            <div class="col-sm-11">
+                                <select class="form-control" ng-model="phoneNumber" ng-options="item.name for item in tempDataPhone">
+                                    <option value="">Select</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-1">
+                                <a href="#" tooltip-placement="top-right" uib-tooltip="{{unreachableDestination}}"><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" ng-model="groupTrunkGroup.phoneNumber" class="form-control" id="UnreachableDestination" placeholder="">
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label>Group</label>
+                        <div class=""><a href="#">Gulf Coast - 000795322</a></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="UnreachableDestination">Outgoing Concurrent Calls</label>
+                        <input type="text" ng-model="groupTrunkGroup.outgoingConcurr" class="form-control" id="UnreachableDestination" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label>Bursting Maximum Incoming Calls</label>
+                        <div class="">1</div>
+                    </div>
+                    <div class="form-group">
+                        <label>Unreachable Destination Timer</label>
+                        <div class="">12 seconds <a href="" tooltip-placement="top-left" uib-tooltip="{{unreachableDestinationTimer}}"><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i></a></div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label>Maximum Concurrent Calls</label>
+                        <div>5 <a href="" tooltip-placement="bottom-left" uib-tooltip="{{maxConcurrentCalls}}"><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i></a></div>
+                    </div>
+                    <div class="form-group">
+                        <label>Trunk Burst</label>
+                        <div>5 <a href="" tooltip-placement="bottom-left" uib-tooltip="{{trunkBurst}}"><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i></a></div>
+                    </div>
+                    <div class="form-group">
+                        <label>Bursting Maximum Outgoing Calls</label>
+                        <div class="">1</div>
+                    </div>
+                    <div class="form-group">
+                        <label>Forward Always Action</label>
+                        <div class="row">
+                            <div class="col-sm-11">
+                                <select class="form-control" ng-model="phoneNumber" ng-options="item.name for item in tempDataPhone">
+                                    <option value="">Select</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-1">
+                                <a href="#" tooltip-placement="top-right" uib-tooltip="{{forwardAllowTooltip}}"><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>
