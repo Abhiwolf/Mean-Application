@@ -44,5 +44,5 @@ This command does a few things:
 
 ## Running Your Application
 
-Run your application use command like 'node index.js':
+Run your application use command like 'node index.js'.
 Your application should run on port 3000 with the *development* environment configuration, so in your browser just go to [http://localhost:3000](http://localhost:3000)
