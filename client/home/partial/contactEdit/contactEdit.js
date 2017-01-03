@@ -138,7 +138,7 @@ angular.module('home').controller('ContacteditCtrl', function($scope, $mdDialog,
         console.log(data);
         if ($scope.saveUpdateButton === false) {
             console.log(data);
-            movieService.saveContac tInfo(data).success(function(response) {
+            movieService.saveContactInfo(data).success(function(response) {
                 console.log(response);
             }).error(function(error) {
                 console.log(error);
