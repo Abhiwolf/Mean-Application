@@ -1,0 +1,31 @@
+<div class="col-md-12" ng-controller="ContactCtrl">
+    <div class="col-sm-8 center-content" ng-hide="isAddNewMovieBtnClick">
+        <button class="btn btn-primary pull-right" ng-click="addNewContact()">Add New Contact</button>
+        <br/>
+        <br/>
+        <div class="panel panel-default table-responsive">
+            <div class="panel-heading text-center">
+                <h4>Contact List</h4>
+            </div>
+            <div class="panel-body">
+                <table class="table table-hover">
+                    <thead>
+                        <th>Name</th>
+                        <th>Mobile</th>
+                        <th>Action</th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in contacts">
+                            <td>{{item.name}}</td>
+                            <td>{{item.mobile}}</td>
+                            <td>
+                                <button class="btn btn-primary btn-sm" ng-click="editContact(item, $index)">Edit</button>
+                                <button class="btn btn-warning btn-sm" ng-click="deleteContact(item, $index)">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
