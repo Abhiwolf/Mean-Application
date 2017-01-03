@@ -1,6 +1,6 @@
 angular.module('home', ['ui.bootstrap', 'ui.router', 'ngAnimate']);
 
-angular.module('home').config(function ($stateProvider) {
+angular.module('home').config(function($stateProvider) {
 
     $stateProvider.state('movie', {
         url: '/movie',
@@ -29,7 +29,7 @@ angular.module('home').config(function ($stateProvider) {
         templateUrl: 'home/partial/contact/contact.html'
     });
     $stateProvider.state('contactEdit', {
-        url: '/contactEdit',
+        url: '/contactEdit/:id',
         params: {
             contactEditData: null,
         },
