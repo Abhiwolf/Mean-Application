@@ -14,7 +14,27 @@ module.exports = function(config) {
 
 
         // list of files / patterns to load in the browser
-        files: [],
+        files: [
+            //bower:js
+            'bower_components/jquery/dist/jquery.js',
+            'bower_components/angular/angular.js',
+            'bower_components/bootstrap/dist/js/bootstrap.js',
+            'bower_components/angular-animate/angular-animate.js',
+            'bower_components/angular-cookies/angular-cookies.js',
+            'bower_components/angular-resource/angular-resource.js',
+            'bower_components/angular-sanitize/angular-sanitize.js',
+            'bower_components/angular-ui-router/release/angular-ui-router.js',
+            'bower_components/less.js/dist/less.js',
+            'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
+            'bower_components/lodash/lodash.js',
+            'bower_components/angular-mocks/angular-mocks.js',
+            'app.js',
+            'home/**/*.js',
+            'home/service/movieService.js',
+            'login/**/*.js',
+            // 'test/mock/**/*.js',
+            'login/partial/userLogin/userLogin-spec.js'
+        ],
 
 
         // list of files to exclude

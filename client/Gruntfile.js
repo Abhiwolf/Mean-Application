@@ -206,12 +206,12 @@ module.exports = function(grunt) {
                     createFolderGlobs('*-spec.js')
                 ],
                 logLevel: 'ERROR',
-                reporters: ['mocha'],
+                reporters: ['progress'],
                 autoWatch: false, //watching is handled by grunt-contrib-watch
                 singleRun: true
             },
             all_tests: {
-                browsers: ['PhantomJS', 'Chrome', 'Firefox']
+                browsers: ['Chrome']
             },
             during_watch: {
                 browsers: ['PhantomJS']

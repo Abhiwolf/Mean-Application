@@ -1,11 +1,11 @@
 describe('movieService', function() {
+    beforeEach(module('client'));
+    beforeEach(module('home'));
 
-  beforeEach(module('home'));
+    it('should ...', inject(function(movieService) {
 
-  it('should ...', inject(function(movieService) {
+        //expect(movieService.doSomething()).toEqual('something');
 
-    //expect(movieService.doSomething()).toEqual('something');
-
-  }));
+    }));
 
 });
