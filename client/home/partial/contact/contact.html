@@ -19,7 +19,7 @@
                             <td>{{item.name}}</td>
                             <td>{{item.mobile}}</td>
                             <td>
-                                <button class="btn btn-primary btn-sm" ng-click="editContact(item, $index)">Edit</button>
+                                <button class="btn btn-primary btn-sm" ng-click="editContact(item._id, $index)">Edit</button>
                                 <button class="btn btn-warning btn-sm" ng-click="deleteContact(item, $index)">Delete</button>
                             </td>
                         </tr>

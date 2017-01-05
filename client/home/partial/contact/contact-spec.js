@@ -2,19 +2,44 @@ describe('ContactCtrl', function() {
 
     beforeEach(module('home'));
     beforeEach(module('LocalStorageModule'));
-    var scope, ctrl;
+    var scope, ContactCtrl;
 
-    beforeEach(inject(function($rootScope, $controller) {
+    beforeEach(inject(function($rootScope, $controller, $state) {
         scope = $rootScope.$new();
-        ctrl = $controller('ContactCtrl', {
+        ContactCtrl = $controller('ContactCtrl', {
             $scope: scope
         });
+        spyOn($state, 'go');
     }));
 
-    it('should ...', inject(function() {
-
-        expect(1).toEqual(1);
-
+    it('should defined', inject(function() {
+        expect(ContactCtrl).toBeDefined();
     }));
+
+    describe('Test ContactCtrl method', function() {
+        it('addNewContact method should initialise', function() {
+            console.log("ContactCtrl test cases starting from here");
+            expect(scope.addNewContact).toBeDefined();
+            scope.addNewContact();
+        });
+        it('addNewContact method should work properly', inject(function($state) {
+            scope.addNewContact();
+            console.log("go to contact edit method");
+            expect($state.go).toHaveBeenCalledWith('contactEdit');
+        }));
+
+        it('EditContact method should be defined', function() {
+            expect(scope.editContact).toBeDefined();
+        });
+        it('EditContact method should work properly', inject(function($state) {
+            scope.editContact();
+            var data = 'abhi'
+                //expect($state.go).toHaveBeenCalledWith('contactEdit');
+            $state.go('contactEdit', {
+                'contactEditData': data,
+                'id': data
+            });
+        }))
+    })
 
 });

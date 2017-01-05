@@ -5,22 +5,22 @@ angular.module('home').controller('ContactCtrl', function($scope, $state, movieS
     };
 
     //Get contact info
-    function getContactList() {
+    $scope.getContactList = function() {
         movieService.getContactInfo().success(function(response) {
             $scope.contacts = response;
         }).error(function(error) {
             console.log(error);
         });
     }
-    getContactList();
+    $scope.getContactList();
 
     //Edit contact data
     $scope.editContact = function(data) {
-        movieService.getContactDataById(data._id).success(function(response) {
+        movieService.getContactDataById(data).success(function(response) {
             if (response) {
                 $state.go('contactEdit', {
                     'contactEditData': response,
-                    'id': data._id
+                    'id': data
                 });
             }
         }).error(function(error) {
@@ -31,7 +31,7 @@ angular.module('home').controller('ContactCtrl', function($scope, $state, movieS
     $scope.deleteContact = function(item) {
         movieService.deleteContactInfo(item._id).success(function(response) {
             console.log(response);
-            getContactList();
+            $scope.getContactList();
         }).error(function(error) {
             console.log(error);
         });
