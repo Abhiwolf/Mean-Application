@@ -11,7 +11,7 @@ angular.module('home').controller('ContactCtrl', function($scope, $state, movieS
         }).error(function(error) {
             console.log(error);
         });
-    }
+    };
     $scope.getContactList();
 
     //Edit contact data

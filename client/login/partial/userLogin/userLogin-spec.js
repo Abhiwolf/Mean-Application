@@ -49,6 +49,6 @@ describe('UserloginCtrl', function() {
             expect(scope.authData.userName).toBeUndefined();
         });
 
-    })
+    });
 
 });

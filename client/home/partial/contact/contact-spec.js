@@ -33,13 +33,13 @@ describe('ContactCtrl', function() {
         });
         it('EditContact method should work properly', inject(function($state) {
             scope.editContact();
-            var data = 'abhi'
-                //expect($state.go).toHaveBeenCalledWith('contactEdit');
+            var data = 'abhi';
+            //expect($state.go).toHaveBeenCalledWith('contactEdit');
             $state.go('contactEdit', {
                 'contactEditData': data,
                 'id': data
             });
-        }))
-    })
+        }));
+    });
 
 });
