@@ -6,8 +6,8 @@ var UserRegistration = require('../models/userRegistration');
 var Login = require('../models/userLogin');
 var Contacts = require('../models/contacts')
 
-router.get('/image/:id', function (req, res, next) {
-    return UserImage.findById(req.params.id, function (err, user) {
+router.get('/image/:id', function(req, res, next) {
+    return UserImage.findById(req.params.id, function(err, user) {
         if (!err) {
             return res.send(user);
         } else {
@@ -18,7 +18,7 @@ router.get('/image/:id', function (req, res, next) {
 });
 
 /* POST /todos */
-router.post('/image', function (req, res, next) {
+router.post('/image', function(req, res, next) {
     var userImage = new UserImage({
         _id: req.body.id,
         fileName: req.body.fileName,
@@ -27,7 +27,7 @@ router.post('/image', function (req, res, next) {
         size: req.body.size
     });
 
-    return userImage.save(function (err) {
+    return userImage.save(function(err) {
         if (!err) {
             return res.send(userImage);
         } else {
@@ -37,15 +37,15 @@ router.post('/image', function (req, res, next) {
 });
 
 //Update image
-router.put('/image/:id', function (req, res) {
-    UserImage.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
+router.put('/image/:id', function(req, res) {
+    UserImage.findByIdAndUpdate(req.params.id, req.body, function(err, post) {
         if (err) return next(err);
         res.json(post);
     });
 });
 
 //post registration from data
-router.post('/registration', function (req, res, next) {
+router.post('/registration', function(req, res, next) {
     var registration = new UserRegistration({
         name: req.body.name,
         userName: req.body.userName,
@@ -56,7 +56,7 @@ router.post('/registration', function (req, res, next) {
 
     });
 
-    return registration.save(function (err) {
+    return registration.save(function(err) {
         if (!err) {
             return res.send(registration);
         } else {
@@ -66,8 +66,8 @@ router.post('/registration', function (req, res, next) {
 });
 
 //get registration data
-router.get('/registration/:id', function (req, res, next) {
-    return UserRegistration.findById(req.params.id, function (err, registration) {
+router.get('/registration/:id', function(req, res, next) {
+    return UserRegistration.findById(req.params.id, function(err, registration) {
         if (!err) {
             return res.send(registration);
         } else {
@@ -76,19 +76,19 @@ router.get('/registration/:id', function (req, res, next) {
     })
 });
 
-router.put('/registration/:id', function (req, res) {
-    UserRegistration.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
+router.put('/registration/:id', function(req, res) {
+    UserRegistration.findByIdAndUpdate(req.params.id, req.body, function(err, post) {
         if (err) return next(err);
         res.json(post);
     });
 });
 
-//Validate login credentials 
-router.post('/login', function (req, res, next) {
+//Validate login credentials
+router.post('/login', function(req, res, next) {
     return UserRegistration.findOne({
         username: req.body.username,
         password: req.body.password
-    }, function (err, registration) {
+    }, function(err, registration) {
         if (err) {
             console.log(err);
         } else {
@@ -98,7 +98,7 @@ router.post('/login', function (req, res, next) {
 
 });
 //Contact post method
-router.post('/contact', function (req, res, next) {
+router.post('/contact', function(req, res, next) {
     var contact = new Contacts({
         name: req.body.name,
         mobile: req.body.mobile,
@@ -114,7 +114,7 @@ router.post('/contact', function (req, res, next) {
         address: req.body.address
     });
 
-    return contact.save(function (err) {
+    return contact.save(function(err) {
         if (!err) {
             return res.send(contact);
         } else {
@@ -124,8 +124,8 @@ router.post('/contact', function (req, res, next) {
 });
 
 //Contact get method
-router.get('/contact', function (req, res, next) {
-    return Contacts.find(function (err, contact) {
+router.get('/contact', function(req, res, next) {
+    return Contacts.find(function(err, contact) {
         if (!err) {
             return res.send(contact);
         } else {
@@ -134,8 +134,8 @@ router.get('/contact', function (req, res, next) {
     });
 });
 
-router.get('/contact/:id', function (req, res, next) {
-    return Contacts.findById(req.params.id, function (err, contact) {
+router.get('/contact/:id', function(req, res, next) {
+    return Contacts.findById(req.params.id, function(err, contact) {
         if (!err) {
             return res.send(contact);
         } else {
@@ -144,8 +144,8 @@ router.get('/contact/:id', function (req, res, next) {
     });
 });
 
-router.put('/contact/:id', function (req, res) {
-    Contacts.findByIdAndUpdate(req.params.id, req.body, function (err, contact) {
+router.put('/contact/:id', function(req, res) {
+    Contacts.findByIdAndUpdate(req.params.id, req.body, function(err, contact) {
         if (err) {
             return console.log(err);
         } else {
@@ -154,13 +154,15 @@ router.put('/contact/:id', function (req, res) {
     });
 });
 
-router.delete('/contact/:id', function (req, res) {
-    Contacts.findOneAndRemove(req.params.id, function (err, contact) {
-        if (err) {
-            return console.log(err);
-        } else {
-            return res.send(contact);
-        }
+router.delete('/contact/:id', function(req, res) {
+    Contacts.remove({
+        _id: req.params.id
+    }, function(err, user) {
+        if (err)
+            return res.send(err);
+        res.json({
+            message: 'Deleted'
+        });
     });
 });
 

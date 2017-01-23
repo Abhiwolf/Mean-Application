@@ -29,7 +29,7 @@ angular.module('home').controller('ContactCtrl', function($scope, $state, movieS
     };
 
     $scope.deleteContact = function(item) {
-        movieService.deleteContactInfo(item._id).success(function(response) {
+        movieService.deleteContactInfo(item).success(function(response) {
             console.log(response);
             $scope.getContactList();
         }).error(function(error) {
